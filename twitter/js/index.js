@@ -17,9 +17,11 @@ function accesso() {
   console.log(password.value);
   let nomelength = nomeUtente.value.length;
   let isGoodP = FORMATO_PW.test(password.value);
-  let isGoodU = formatoUtente.test(nomelength);
+  let isGoodU = formatoUtente.test(nomelength.value);
   
   if(nomelength >= 4 && nomelength <= 15 && isGoodP && isGoodU) {
+    localStorage.setItem("Nome Utente", nomeUtente.value);
+    localStorage.setItem("Password", password.value);
     window.location.href="twitt.html";
     console.log("corretto");
 
@@ -27,7 +29,7 @@ function accesso() {
     feedUtente.innerHTML = `min.4 - max:15`;
     console.log("user errato");
 
-  }else if(isGoodU.length && !isGoodP){
+  }else if(isGoodU && !isGoodP){
       feedPassword.innerHTML = `<strong class= text-color>
       <li>Password errata per favore riprova</li>
       <li>La password deve contenere almeno 8 caratteri</li>
@@ -36,7 +38,7 @@ function accesso() {
       console.log("password errata");
     }
   else{
-     feedUtente.innerHTML = `<p>min.4 - max:15</p>`;
+     feedUtente.innerHTML = `min.4 - max:15`;
      feedPassword.innerHTML = `<strong class= text-color>
      <li>Password errata per favore riprova</li>
      <li>La password deve contenere almeno 8 caratteri</li>

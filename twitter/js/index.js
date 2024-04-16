@@ -17,7 +17,7 @@ function accesso() {
   console.log(password.value);
   let nomelength = nomeUtente.value.length;
   let isGoodP = FORMATO_PW.test(password.value);
-  let isGoodU = formatoUtente.test(nomelength.value);
+  let isGoodU = formatoUtente.test(nomelength);
   
   if(nomelength >= 4 && nomelength <= 15 && isGoodP && isGoodU) {
     window.location.href="twitt.html";
@@ -27,24 +27,24 @@ function accesso() {
     feedUtente.innerHTML = `min.4 - max:15`;
     console.log("user errato");
 
-  }else if(isGoodU && !isGoodP){
-    feedPassword.innerHTML = `<strong class= text-color>
-    <li>Password errata per favore riprova</li>
-    <li>La password deve contenere almeno 8 caratteri</li>
-    <li>Deve contenere almeno una lettera Maiuscola</li>
-    <li>Deve contenere almeno un carattere speciale (£ $ % & ! @ ? €)</li></strong>`;
-    console.log("password errata");
-  }
-   else {
-    feedUtente.innerHTML = `min.4 - max:15`;
-    feedPassword.innerHTML = `<strong class= text-color>
-    <li>Password errata per favore riprova</li>
-    <li>La password deve contenere almeno 8 caratteri</li>
-    <li>Deve contenere almeno una lettera Maiuscola</li>
-    <li>Deve contenere almeno un carattere speciale (£ $ % & ! @ ? €)</li></strong>`;
-    console.log("user errato");
-    console.log("pass errata");
-  }
+  }else if(isGoodU.length && !isGoodP){
+      feedPassword.innerHTML = `<strong class= text-color>
+      <li>Password errata per favore riprova</li>
+      <li>La password deve contenere almeno 8 caratteri</li>
+      <li>Deve contenere almeno una lettera Maiuscola</li>
+      <li>Deve contenere almeno un carattere speciale (£ $ % & ! @ ? €)</li></strong>`;
+      console.log("password errata");
+    }
+  else{
+     feedUtente.innerHTML = `<p>min.4 - max:15</p>`;
+     feedPassword.innerHTML = `<strong class= text-color>
+     <li>Password errata per favore riprova</li>
+     <li>La password deve contenere almeno 8 caratteri</li>
+     <li>Deve contenere almeno una lettera Maiuscola</li>
+     <li>Deve contenere almeno un carattere speciale (£ $ % & ! @ ? €)</li></strong>`;
+     console.log("user errato");
+     console.log("pass errata");
+   }
   nomeUtente.value="";
   password.value="";
 }

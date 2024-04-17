@@ -7,7 +7,7 @@ var btnInvia = document.querySelector("#btnInvia");
 btnInvia.addEventListener("click", accesso);
 
 const FORMATO_PW = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-const formatoUtente = /[a-zA-Z][a-zA-Z0-9-_]{4,15}/;
+const formatoUtente = /^[a-zA-Z0-9]{4,15}$/;
 
 function accesso() {
   event.preventDefault();

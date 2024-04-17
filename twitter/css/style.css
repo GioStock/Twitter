@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 body{
     background: #1da1f2;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
 }
 h1 i{
     color: #1da1f2;
+    
     
 }
 i{
@@ -10,4 +14,19 @@ i{
 }
 #btnInvia{
     color: white;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+.container{
+    width: auto;
+}
+.bottoneLogout{
+    width: auto;
+    
+
+    
 }

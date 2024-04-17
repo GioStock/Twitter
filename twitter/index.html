@@ -14,22 +14,27 @@
 </head>
 
 <body data-bs-theme="ligth">
-  <div class="container bg-white bg-opacity-50 rounded-3">
+  <main>
+  <div class="container  bg-white bg-opacity-50 rounded-3">
     <div class="row justify-content-center mt-5">
+
       <div class="col-lg-6">
-        <h1 class="text-center mt-5 mb-5">
+        <h1 class="text-center mb-5">
           <i class="fa-brands fa-twitter me-2"></i> Registrati su Twitter
         </h1>
         <form>
+          <!-- username-->
           <label for="nomeUtente" class="form-label mt-3">Username</label>
           <input type="text" id="nomeUtente" placeholder="Inserisci nickname" class="form-control" />
           <p id="feedUtente"></p>
+          <!--password-->
           <label for="password" class="form-label mt-3">Password</label>
           <input type="password" id="password" placeholder="inserisci la tua password" class="form-control" />
           <div class="bg-danger text-white">
             <p id="feedPassword"></p>
           </div>
           <hr />
+          <!-- button invia registrazione-->
           <button class="btn btn-info mt-3 mb-3 d-block ms-auto" id="btnInvia">
             invia
           </button>
@@ -37,6 +42,7 @@
       </div>
     </div>
   </div>
+</main>
 
   <script src="./js/index.js"></script>
 </body>

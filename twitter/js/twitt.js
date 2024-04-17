@@ -25,7 +25,9 @@ function inserisciTweet() {
   // console.log(tweets);
 
   let tweetInserito = document.querySelector("#tweetInserito");
-  tweetInserito.innerHTML += `<div><h6 class="text-start ms-3">Nuovo tweet: ${textArea.value}</h6></div>`;
+  tweetInserito.innerHTML += `<div><h6 class="text-start ms-3">${getTime()} New tweet: ${
+    textArea.value
+  }</h6></div>`;
   localStorage.setItem("tweet", textArea.value);
   //reset area una volta inviato
   textArea.value = "";
@@ -44,7 +46,21 @@ function contaCaratteri() {
     contatore.textContent = "limite raggiunto!!!";
   }
 }
+/* -------------------------------------------------------------------------- */
+/*                               fuzione orario                               */
+/* -------------------------------------------------------------------------- */
+function getTime() {
+  let now=new Date();
+  let ora=(now.getHours()<10?'0':'')+now.getHours();
+  let min=(now.getMinutes()<10?'0':'')+now.getMinutes();
+  let orario=`${ora}:${min}`;
+  return orario;
 
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               FUNZIONE LOGOUT                              */
+/* -------------------------------------------------------------------------- */
 btnLogout.addEventListener("click", logout);
 
 function logout() {
@@ -57,12 +73,9 @@ function logout() {
     body: JSON.stringify(tweet),
     headers: { "Content-Type": "application/json" },
   })
-    .then(
-      (risposta) =>
-        risposta.ok &&
-        (console.log("salvataggio eseguito"))
-    )
-    .catch(() => console.error("errore"));
-    localStorage.removeItem("Nome Utente")
-    localStorage.removeItem("Password")
+    
+    localStorage.removeItem("Nome Utente");
+    localStorage.removeItem("Password");
+    localStorage.removeItem("tweets");
+    localStorage.removeItem("tweet");
 }

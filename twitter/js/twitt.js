@@ -6,11 +6,16 @@ let contatore = document.querySelector("#contatore");
 
 btnInviaTweet.addEventListener("click", inserisciTweet);
 
-// archivio locale dal html 1
+/* -------------------------------------------------------------------------- */
+/*                         archivio locale dal html 1                         */
+/* -------------------------------------------------------------------------- */
 let username = localStorage.getItem("Nome Utente");
 let password = localStorage.getItem("Password");
 utenteOk.innerHTML = `<i class="fa-solid fa-user p-3"></i>@${username}`;
 
+/* -------------------------------------------------------------------------- */
+/*                          funzione inserisci tweet                          */
+/* -------------------------------------------------------------------------- */
 function inserisciTweet() {
   //oggetto tweet
   let arrayJson = {
@@ -73,9 +78,6 @@ function logout() {
     body: JSON.stringify(tweet),
     headers: { "Content-Type": "application/json" },
   })
+    localStorage.clear();
     
-    localStorage.removeItem("Nome Utente");
-    localStorage.removeItem("Password");
-    localStorage.removeItem("tweets");
-    localStorage.removeItem("tweet");
 }

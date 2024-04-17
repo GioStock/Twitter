@@ -922,6 +922,33 @@
           "tweet": "sto commentando il mio tweet"
         }
       ]
+    },
+    {
+      "id": "302f",
+      "username": "anselmo",
+      "password": "Artrite24@",
+      "tweets": [
+        {
+          "username": "anselmo",
+          "password": "Artrite24@",
+          "tweet": "piccolo "
+        },
+        {
+          "username": "anselmo",
+          "password": "Artrite24@",
+          "tweet": "pippo baudo"
+        },
+        {
+          "username": "anselmo",
+          "password": "Artrite24@",
+          "tweet": "ciao"
+        },
+        {
+          "username": "anselmo",
+          "password": "Artrite24@",
+          "tweet": "nuovo pippo"
+        }
+      ]
     }
   ]
 }

@@ -9,7 +9,7 @@ btnInviaTweet.addEventListener("click", inserisciTweet);
 // archivio locale dal html 1
 let username = localStorage.getItem("Nome Utente");
 let password = localStorage.getItem("Password");
-utenteOk.innerHTML = `@${username}`;
+utenteOk.innerHTML = `<i class="fa-solid fa-user p-3"></i>@${username}`;
 
 function inserisciTweet() {
   //oggetto tweet
@@ -25,7 +25,7 @@ function inserisciTweet() {
   // console.log(tweets);
 
   let tweetInserito = document.querySelector("#tweetInserito");
-  tweetInserito.innerHTML = `<h6 class="text-start ms-3">Nuovo tweet: "${textArea.value}"</h6>`;
+  tweetInserito.innerHTML += `<div><h6 class="text-start ms-3">Nuovo tweet: ${textArea.value}</h6></div>`;
   localStorage.setItem("tweet", textArea.value);
   //reset area una volta inviato
   textArea.value = "";
@@ -46,7 +46,9 @@ function contaCaratteri() {
 }
 
 btnLogout.addEventListener("click", logout);
+
 function logout() {
+  (window.location.href = "index.html")
   const tweetsOggetto = JSON.parse(localStorage.getItem("tweets") || []);
   const tweet = { username, password, tweets: tweetsOggetto };
 
@@ -58,8 +60,9 @@ function logout() {
     .then(
       (risposta) =>
         risposta.ok &&
-        (console.log("salvataggio eseguito"),
-        (window.location.href = "index.html"))
+        (console.log("salvataggio eseguito"))
     )
     .catch(() => console.error("errore"));
+    localStorage.removeItem("Nome Utente")
+    localStorage.removeItem("Password")
 }
